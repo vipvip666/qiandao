@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>欢迎你</title>
+     <style>
+    .form-container {
+      text-align: center;
+      justify-content: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+
+
+        <p class="h2">
+            欢迎第三外国语学校的  <strong>{{ name }}</strong>  同学
+
+        </p>
+        <p class="h3">
+            您的签到时间是：{{ time }}
+        </p>
+    <p class="h2 text-danger">上课请全程保持安静</p>
+    <p><button onclick="goBack()" class="btn btn-warning"> 点击返回签到页面</button></p>
+
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+
+</div>
+</body>
+</html>

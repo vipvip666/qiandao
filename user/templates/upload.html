@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传</title>
+
+</head>
+<body>
+<form  id="myFormer" action="" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <p>
+        输入密码：<input type ='text' name="password">
+    </p>
+    <p>
+        <input type="file" name="file">
+    </p>
+    <p>
+        <input type='submit' value="上传">
+    </p>
+</form>
+<span id="upload-message" style="margin-left: 10px;"></span>
+
+<script>
+  const form = document.querySelector('form#myFormer');
+  const message = document.querySelector('#upload-message');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const response = await fetch(event.target.action, {
+      method: 'POST',
+      body: formData,
+    });
+    const data = await response.json();
+    message.textContent = data.message;
+  });
+</script>
+
+
+
+
+
+<form id="myForm" action="/user/delete/" method="get">
+  <!-- 表单元素 -->
+</form>
+
+<button type="submit" form="myForm" formtarget="_blank">删除班级名单数据库</button>
+
+
+
+<form id="myForm2" action="/sign_in/delete/" method="get">
+  <!-- 表单元素 -->
+</form>
+
+<button type="submit" form="myForm2" formtarget="_blank">删除签到数据库</button>
+
+
+<form id="myForm3" action="/sign_in/unnamed/" method="get">
+  <!-- 表单元素 -->
+</form>
+
+<button type="submit" form="myForm3" formtarget="_blank">签到情况</button>
+
+<form id="myForm4" action="/sign_in/teacher/" method="get">
+  <!-- 表单元素 -->
+</form>
+
+<button type="submit" form="myForm4" formtarget="_blank">班主任名单</button>
+</body>
+</html>

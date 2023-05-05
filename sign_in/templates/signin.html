@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>签到</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <style>
+    .form-container {
+      text-align: center;
+      justify-content: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+    <p class="h1 text-info">欢迎同学们来到信息课堂，请大家上课第一时间完成签到</p>
+    <p class="h5">温馨提示，输入自己姓名，然后点击签到</p>
+    <form action="" method="post"  >
+        {% csrf_token %}
+        <p class="h3">
+            姓名
+            <input type ='text' name="sname">
+        </p>
+        <p class="h3">
+            <input type='submit' value="签到">
+        </p>
+        <p>
+            {{ error0 }}
+        </p>
+    </form>
+    {% if message %}
+    <p class="text-danger">{{ message }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
